@@ -1,15 +1,21 @@
 import PropTypes from 'prop-types';
 
-const Button = (props) =>  {
+const Button = (props) => {
+  const { name } = props;
+
   return (
-    <button className ="calculator-button">
-      {props.name}
+    <button className="calculator-button" type="submit">
+      {name}
     </button>
-  )
-}
+  );
+};
 
 Button.propTypes = {
-  name: PropTypes.string
-}
+  name: PropTypes.string,
+};
 
-export {Button as default}
+Button.defaultProps = {
+  name: 'Some Button',
+};
+
+export { Button as default };
