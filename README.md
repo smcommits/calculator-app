@@ -3,7 +3,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Live-demo
-(Link live verson of applicaion)[https://calcmagic.herokuapp.com/]
+[Live verson of applicaion](https://calcmagic.herokuapp.com/)
 
 ## Available Scripts
 
