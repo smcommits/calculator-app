@@ -1,0 +1,17 @@
+import PropTypes from 'prop-types';
+
+const Display = (_props) => {
+  return (
+    <div></div> 
+  )
+}
+
+Display.defaultProps = {
+  result: "0"
+}
+
+Display.propTypes = {
+  result: PropTypes.string
+}
+
+export default Display
