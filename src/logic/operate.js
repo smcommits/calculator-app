@@ -5,12 +5,13 @@ export default function operate(one, two, operator) {
   const secondNumber = Big(two);
 
   const operatorMap = {
-    '+': firstNumber.plus(secondNumber),
-    '-': firstNumber.minus(secondNumber),
-    x: firstNumber.times(secondNumber),
-    '/': firstNumber.div(secondNumber),
-    '%': firstNumber.mod(secondNumber),
+    '+': Big.prototype.plus,
+    '-': Big.prototype.minus,
+    x: Big.prototype.times,
+    '*': Big.prototype.times,
+    '/': Big.prototype.div,
+    '%': Big.prototype.mod,
   };
 
-  return operatorMap[operator]();
+  return operatorMap[operator].call(firstNumber, secondNumber).toString();
 }
