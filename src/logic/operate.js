@@ -1,7 +1,7 @@
 import Big from 'big.js';
 
 export default function operate(one, two, operator) {
-  if (one === '0' && two === '0') {
+  if (one === '0' && two === '/') {
     return {};
   }
   const firstNumber = Big(one);
