@@ -1,10 +1,14 @@
 import PropTypes from 'prop-types';
 
 const Button = (props) => {
-  const { name } = props;
+  const { clickHandler, name } = props;
+
+  const handleClick = () => {
+    clickHandler(name);
+  };
 
   return (
-    <button className="calculator-button" type="submit">
+    <button className="calculator-button" type="submit" onClick={handleClick}>
       {name}
     </button>
   );
@@ -12,6 +16,7 @@ const Button = (props) => {
 
 Button.propTypes = {
   name: PropTypes.string,
+  clickHandler: PropTypes.func.isRequired,
 };
 
 Button.defaultProps = {

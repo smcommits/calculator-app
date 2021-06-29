@@ -1,17 +1,45 @@
 /* eslint-disable no-unused-vars */
-
+/* eslint-disable react/no-access-state-in-setstate */
 import React from 'react';
 import Display from './Display';
 import ButtonPanel from './ButtonPanel';
-import Calculate from '../logic/calculate';
+import calculate from '../logic/calculate';
 
-function App() {
-  return (
-    <>
-      <Display />
-      <ButtonPanel />
-    </>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      total: '',
+      next: '',
+      operation: '',
+    };
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  componentDidMount() {
+    document.addEventListener('keypress', (e) => {
+      this.handleKeyPress(e.key);
+    });
+  }
+
+  handleClick(buttonName) {
+    this.setState(calculate(this.state, buttonName));
+  }
+
+  handleKeyPress(buttonName) {
+    this.setState(calculate(this.state, buttonName));
+  }
+
+  render() {
+    const { total, next, operation } = this.state;
+    return (
+      <>
+        <Display total={total} next={next} />
+        <ButtonPanel clickHandler={this.handleClick} />
+      </>
+    );
+  }
 }
 
 export default App;

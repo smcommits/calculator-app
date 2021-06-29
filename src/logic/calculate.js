@@ -2,7 +2,7 @@ import operate from './operate';
 
 export default function calculate(data, buttonName) {
   const isNumber = (buttonName) => buttonName.match(/[0-9]+/);
-  const extractNumber = (str) => str.match(/^-?[0-9]+\.?[0-9]?/g)[0];
+
   const isOperator = (buttonName) => ['+', '-', '*', '/', '%', 'x', '*'].includes(buttonName);
 
   const cleardata = () => ({
@@ -10,6 +10,8 @@ export default function calculate(data, buttonName) {
     next: '',
     operation: '',
   });
+
+  const extractNumber = (str) => str.match(/^-?[0-9]+\.?[0-9]?/g)[0];
 
   const hasDot = (str) => str.includes('.');
 
