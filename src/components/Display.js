@@ -1,19 +1,20 @@
 import PropTypes from 'prop-types';
 
 const Display = (props) => {
-  const { result } = props;
+  const { total, next } = props;
 
   return (
-    <div>{result}</div>
+    <div className="displayContainer">
+      <h4 className="display">
+        {total + next }
+      </h4>
+    </div>
   );
 };
 
-Display.defaultProps = {
-  result: '0',
-};
-
 Display.propTypes = {
-  result: PropTypes.string,
+  total: PropTypes.string.isRequired,
+  next: PropTypes.string.isRequired,
 };
 
 export default Display;
